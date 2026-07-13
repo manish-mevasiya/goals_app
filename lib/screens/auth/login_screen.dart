@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goals_app/screens/dashboard/dashboard_screen.dart';
+import 'package:goals_app/screens/home/home_screen.dart';
 import 'package:goals_app/utils/constants/app_string.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                                   Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => DashboardScreen(),
+                                      builder: (context) => HomeScreen(),
                                     ), (route) => false,
                                   );
                                 },

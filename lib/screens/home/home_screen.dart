@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:goals_app/utils/theme/app_colors.dart';
 
-class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
   final List<Widget> pages = [
@@ -28,17 +28,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
         height: 90,
         decoration: BoxDecoration(
           color: Colors.white,
-          border: Border(
-            top: BorderSide(
-              color: Colors.grey,
-              width: 0.5,
-            ),
-          ),
+          border: Border(top: BorderSide(color: Colors.grey, width: 0.5)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-
             _navItem(
               icon: Icons.dashboard_outlined,
               activeIcon: Icons.dashboard,
@@ -103,8 +97,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               label,
               style: TextStyle(
                 fontSize: 12,
-                fontWeight:
-                selected ? FontWeight.w600 : FontWeight.normal,
+                fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
                 color: selected ? AppColors.primaryColor : Colors.grey,
               ),
             ),
@@ -163,8 +156,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               "More",
               style: TextStyle(
                 fontSize: 12,
-                fontWeight:
-                selected ? FontWeight.w600 : FontWeight.normal,
+                fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
                 color: selected ? AppColors.primaryColor : Colors.grey,
               ),
             ),
