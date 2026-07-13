@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:goals_app/utils/theme/app_colors.dart';
+import 'package:goals_app/screens/home/dashbord/dashboard_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
   final List<Widget> pages = [
-    const Center(child: Text("Dashboard")),
+    const DashboardScreen(),
     const Center(child: Text("Goals")),
     const Center(child: Text("Pipeline")),
     const Center(child: Text("Accounts")),
