@@ -300,10 +300,11 @@ class _SalesManagerViewState extends State<SalesManagerView> {
     return GridView.count(
       crossAxisCount: 2,
       shrinkWrap: true,
+      padding: .zero,
       physics: const NeverScrollableScrollPhysics(),
       crossAxisSpacing: 12,
       mainAxisSpacing: 12,
-      childAspectRatio: 2,
+      childAspectRatio: 1.7,
       children: [
         _buildStatCard("LEADS", "142", "18 this week", isUp: true),
         _buildStatCard("OPPORTUNITIES", "67", "9 this week", isUp: true),
@@ -623,6 +624,7 @@ class _SalesManagerViewState extends State<SalesManagerView> {
           const SizedBox(height: 12),
           ListView.separated(
             shrinkWrap: true,
+            padding: .zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: players.length,
             separatorBuilder: (context, index) => const SizedBox(height: 12),
@@ -789,6 +791,7 @@ class _SalesManagerViewState extends State<SalesManagerView> {
           const SizedBox(height: 12),
           ListView.separated(
             shrinkWrap: true,
+            padding: .zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: performers.length,
             separatorBuilder: (context, index) => const SizedBox(height: 12),

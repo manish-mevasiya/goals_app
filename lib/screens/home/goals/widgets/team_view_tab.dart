@@ -391,9 +391,10 @@ class _TeamViewTabState extends State<TeamViewTab> {
 
     return ListView.separated(
       shrinkWrap: true,
+      padding: .zero,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: filteredTeammates.length,
-      separatorBuilder: (context, index) => const SizedBox(height: 16),
+      separatorBuilder: (context, index) => const SizedBox(height: 8.0),
       itemBuilder: (context, index) {
         final member = filteredTeammates[index];
         final String name = member["name"] as String;

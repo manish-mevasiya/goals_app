@@ -250,9 +250,10 @@ class _TeamPipelineViewState extends State<TeamPipelineView> {
           // 3. Deals List
           ListView.separated(
             shrinkWrap: true,
+            padding: .zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: filteredDeals.length,
-            separatorBuilder: (context, index) => const SizedBox(height: 16),
+            separatorBuilder: (context, index) => const SizedBox(height: 8.0),
             itemBuilder: (context, index) {
               final deal = filteredDeals[index];
               final Color dotColor = deal["dotColor"] as Color;

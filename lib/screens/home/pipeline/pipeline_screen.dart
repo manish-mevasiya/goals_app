@@ -28,79 +28,77 @@ class _PipelineScreenState extends State<PipelineScreen> {
       backgroundColor: const Color(0xFFF4F7FA),
       body: SafeArea(
         top: false,
-        child: Column(
-          children: [
-            // 1. Premium Header (Title, Subtitle, & Add Button)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Pipeline",
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              // 1. Premium Header (Title, Subtitle, & Add Button)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Pipeline",
+                          style: TextStyle(
+                            color: Color(0xFF1E293B),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          isTeamView ? "Team Pipeline" : "My Active Deals",
+                          style: TextStyle(
+                            color: Colors.blueGrey.shade400,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
+                    ),
+                    // Add Opp Button
+                    ElevatedButton.icon(
+                      onPressed: _showAddOpportunitySheet,
+                      icon: const Icon(Icons.add, color: Colors.white, size: 18),
+                      label: const Text(
+                        "Add Opp",
                         style: TextStyle(
-                          color: Color(0xFF1E293B),
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 28,
+                          fontSize: 14,
                         ),
                       ),
-                      const SizedBox(height: 2),
-                      Text(
-                        isTeamView ? "Team Pipeline" : "My Active Deals",
-                        style: TextStyle(
-                          color: Colors.blueGrey.shade400,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF10B981), // Mockup Green
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                      ),
-                    ],
-                  ),
-                  // Add Opp Button
-                  ElevatedButton.icon(
-                    onPressed: _showAddOpportunitySheet,
-                    icon: const Icon(Icons.add, color: Colors.white, size: 18),
-                    label: const Text(
-                      "Add Opp",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                        elevation: 0,
                       ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF10B981), // Mockup Green
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 0,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
 
-            // 2. Tab Toggles (Team View vs My Deals)
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: _buildTabToggle(),
+              // 2. Tab Toggles (Team View vs My Deals)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: _buildTabToggle(),
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
+              const SizedBox(height: 16),
 
-            // 3. Scrollable Contents
-            Expanded(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: isTeamView ? const TeamPipelineView() : const MyDealsView(),
-              ),
-            ),
-          ],
+              // 3. Scrollable Contents
+              isTeamView ? const TeamPipelineView() : const MyDealsView(),
+            ],
+          ),
         ),
       ),
     );

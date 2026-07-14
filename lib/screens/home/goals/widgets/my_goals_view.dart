@@ -215,9 +215,10 @@ class _MyGoalsViewState extends State<MyGoalsView> {
 
     return ListView.separated(
       shrinkWrap: true,
+      padding: .zero,
       physics: const NeverScrollableScrollPhysics(),
       itemCount: filteredGoals.length,
-      separatorBuilder: (context, index) => const SizedBox(height: 12),
+      separatorBuilder: (context, index) => const SizedBox(height: 8.0),
       itemBuilder: (context, index) {
         final goal = filteredGoals[index];
         final String title = goal["title"] as String;

@@ -67,9 +67,10 @@ class MyDealsView extends StatelessWidget {
           // 2. Deals List
           ListView.separated(
             shrinkWrap: true,
+            padding: .zero,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: deals.length,
-            separatorBuilder: (context, index) => const SizedBox(height: 16),
+            separatorBuilder: (context, index) => const SizedBox(height: 8.0),
             itemBuilder: (context, index) {
               final deal = deals[index];
               final Color badgeColor = deal["color"] as Color;

@@ -28,79 +28,77 @@ class _GoalsScreenState extends State<GoalsScreen> {
       backgroundColor: const Color(0xFFF4F7FA),
       body: SafeArea(
         top: false,
-        child: Column(
-          children: [
-            // 1. Premium Header (Title, Subtitle, & Edit Button)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 12.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Goals",
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              // 1. Premium Header (Title, Subtitle, & Edit Button)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Goals",
+                          style: TextStyle(
+                            color: Color(0xFF1E293B),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          "2026 Annual Progress",
+                          style: TextStyle(
+                            color: Colors.blueGrey.shade400,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
+                    ),
+                    // Edit Goals Button
+                    ElevatedButton.icon(
+                      onPressed: _showEditGoalsSheet,
+                      icon: const Icon(Icons.track_changes, color: Colors.white, size: 18),
+                      label: const Text(
+                        "Edit Goals",
                         style: TextStyle(
-                          color: Color(0xFF1E293B),
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 28,
+                          fontSize: 14,
                         ),
                       ),
-                      const SizedBox(height: 2),
-                      Text(
-                        "2026 Annual Progress",
-                        style: TextStyle(
-                          color: Colors.blueGrey.shade400,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF10B981), // Mockup Green
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                      ),
-                    ],
-                  ),
-                  // Edit Goals Button
-                  ElevatedButton.icon(
-                    onPressed: _showEditGoalsSheet,
-                    icon: const Icon(Icons.track_changes, color: Colors.white, size: 18),
-                    label: const Text(
-                      "Edit Goals",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                        elevation: 0,
                       ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF10B981), // Mockup Green
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 0,
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
 
-            // 2. Tab Toggles (Team View vs My View)
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: _buildTabToggle(),
+              // 2. Tab Toggles (Team View vs My View)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: _buildTabToggle(),
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
+              const SizedBox(height: 16),
 
-            // 3. Scrollable Contents
-            Expanded(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: isTeamView ? const TeamViewTab() : const MyGoalsView(),
-              ),
-            ),
-          ],
+              // 3. Scrollable Contents
+              isTeamView ? const TeamViewTab() : const MyGoalsView(),
+            ],
+          ),
         ),
       ),
     );

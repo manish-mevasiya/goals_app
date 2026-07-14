@@ -81,9 +81,10 @@ class MyAccountsView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: ListView.separated(
         shrinkWrap: true,
+        padding: .zero,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: filtered.length,
-        separatorBuilder: (context, index) => const SizedBox(height: 12),
+        separatorBuilder: (context, index) => const SizedBox(height: 8.0),
         itemBuilder: (context, index) {
           final acc = filtered[index];
           final Color themeColor = acc["color"] as Color;

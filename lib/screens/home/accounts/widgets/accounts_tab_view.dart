@@ -93,6 +93,7 @@ class AccountsTabView extends StatelessWidget {
       ),
       child: ListView.separated(
         shrinkWrap: true,
+        padding: .zero,
         physics: const NeverScrollableScrollPhysics(),
         itemCount: filteredAccounts.length,
         separatorBuilder: (context, index) => const Divider(
