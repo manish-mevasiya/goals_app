@@ -39,6 +39,7 @@ class _AccountsScreenState extends State<AccountsScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F7FA),
       body: SafeArea(
+        top: false,
         child: Column(
           children: [
             // 1. Premium Header (Title, Subtitle, & Add Button)

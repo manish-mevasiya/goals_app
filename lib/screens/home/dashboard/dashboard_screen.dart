@@ -20,9 +20,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
         top: false, // Handle top layout ourselves with a custom dark top-bar
         child: Column(
           children: [
-            // 1. Premium Dark Navy Top Bar
-            _buildTopBar(context),
-
             // 2. Scrollable Body Contents
             Expanded(
               child: SingleChildScrollView(
@@ -76,107 +73,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildTopBar(BuildContext context) {
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
-
-    return Container(
-      padding: EdgeInsets.fromLTRB(16, statusBarHeight + 10, 16, 14),
-      decoration: const BoxDecoration(
-        color: Color(0xFF1B2A4A), // Premium Dark Navy
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Left: Stylized white 'g' logo
-          const Row(
-            children: [
-              Text(
-                "g",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'serif',
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            ],
-          ),
-
-          // Right: Action buttons (Search, Notification Bell with red badge, Profile Avatar)
-          Row(
-            children: [
-              // Search Icon
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.1),
-                  shape: BoxShape.circle,
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.search, color: Colors.white, size: 20),
-                  onPressed: () {},
-                  constraints: const BoxConstraints(
-                    minWidth: 38,
-                    minHeight: 38,
-                  ),
-                  padding: EdgeInsets.zero,
-                ),
-              ),
-              const SizedBox(width: 10),
-
-              // Notification Bell
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.1),
-                      shape: BoxShape.circle,
-                    ),
-                    child: IconButton(
-                      icon: const Icon(
-                        Icons.notifications_none,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      onPressed: () {},
-                      constraints: const BoxConstraints(
-                        minWidth: 38,
-                        minHeight: 38,
-                      ),
-                      padding: EdgeInsets.zero,
-                    ),
-                  ),
-                  Positioned(
-                    top: 2,
-                    right: 2,
-                    child: Container(
-                      width: 8,
-                      height: 8,
-                      decoration: const BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(width: 12),
-
-              // Profile Avatar
-              const CircleAvatar(
-                radius: 19,
-                backgroundImage: NetworkImage(
-                  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150",
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
     );
   }

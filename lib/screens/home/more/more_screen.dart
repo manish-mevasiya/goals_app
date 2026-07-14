@@ -65,6 +65,7 @@ class MoreScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F7FA),
       body: SafeArea(
+        top: false,
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(

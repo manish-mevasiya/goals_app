@@ -24,11 +24,126 @@ class _HomeScreenState extends State<HomeScreen> {
     const MoreScreen(),
   ];
 
+  Widget _buildTopBar(BuildContext context) {
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
+
+    return Container(
+      padding: EdgeInsets.fromLTRB(16, statusBarHeight + 10, 16, 14),
+      decoration: const BoxDecoration(
+        color: Color(0xFF1B2A4A), // Premium Dark Navy
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Left: Stylized white 'g' logo
+          const Row(
+            children: [
+              Text(
+                "g",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'serif',
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
+          ),
+
+          // Right: Action buttons (Search, Notification Bell with red badge, Profile Avatar)
+          Row(
+            children: [
+              // Search Icon
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  icon: const Icon(Icons.search, color: Colors.white, size: 20),
+                  onPressed: () {},
+                  constraints: const BoxConstraints(
+                    minWidth: 38,
+                    minHeight: 38,
+                  ),
+                  padding: EdgeInsets.zero,
+                ),
+              ),
+              const SizedBox(width: 10),
+
+              // Notification Bell
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.1),
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.notifications_none,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                      onPressed: () {},
+                      constraints: const BoxConstraints(
+                        minWidth: 38,
+                        minHeight: 38,
+                      ),
+                      padding: EdgeInsets.zero,
+                    ),
+                  ),
+                  Positioned(
+                    top: 2,
+                    right: 2,
+                    child: Container(
+                      width: 8,
+                      height: 8,
+                      decoration: const BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(width: 12),
+
+              // Profile Avatar
+              Container(
+                width: 38,
+                height: 38,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
-      body: pages[currentIndex],
+      backgroundColor: const Color(0xFFF4F7FA),
+      body: Column(
+        children: [
+          _buildTopBar(context),
+          Expanded(
+            child: pages[currentIndex],
+          ),
+        ],
+      ),
       bottomNavigationBar: Container(
         height: 90,
         decoration: BoxDecoration(
