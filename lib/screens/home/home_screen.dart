@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:goals_app/utils/theme/app_colors.dart';
-import 'package:goals_app/screens/home/dashbord/dashboard_screen.dart';
+import 'package:goals_app/screens/home/dashboard/dashboard_screen.dart';
 import 'package:goals_app/screens/home/goals/goals_screen.dart';
 import 'package:goals_app/screens/home/pipeline/pipeline_screen.dart';
 import 'package:goals_app/screens/home/accounts/accounts_screen.dart';
