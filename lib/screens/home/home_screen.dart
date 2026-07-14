@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:goals_app/utils/theme/app_colors.dart';
 import 'package:goals_app/screens/home/dashbord/dashboard_screen.dart';
 import 'package:goals_app/screens/home/goals/goals_screen.dart';
+import 'package:goals_app/screens/home/pipeline/pipeline_screen.dart';
+import 'package:goals_app/screens/home/accounts/accounts_screen.dart';
+import 'package:goals_app/screens/home/more/more_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,9 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> pages = [
     const DashboardScreen(),
     const GoalsScreen(),
-    const Center(child: Text("Pipeline")),
-    const Center(child: Text("Accounts")),
-    const Center(child: Text("More")),
+    const PipelineScreen(),
+    const AccountsScreen(),
+    const MoreScreen(),
   ];
 
   @override

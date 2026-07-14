@@ -67,7 +67,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     const SizedBox(height: 20),
 
                     // Active Tab View
-                    isSalesManager ? const SalesManagerView() : const MyViewTab(),
+                    isSalesManager
+                        ? const SalesManagerView()
+                        : const MyViewTab(),
                   ],
                 ),
               ),
@@ -111,13 +113,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
               // Search Icon
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
+                  color: Colors.white.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
                   icon: const Icon(Icons.search, color: Colors.white, size: 20),
                   onPressed: () {},
-                  constraints: const BoxConstraints(minWidth: 38, minHeight: 38),
+                  constraints: const BoxConstraints(
+                    minWidth: 38,
+                    minHeight: 38,
+                  ),
                   padding: EdgeInsets.zero,
                 ),
               ),
@@ -129,13 +134,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1),
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(
-                      icon: const Icon(Icons.notifications_none, color: Colors.white, size: 20),
+                      icon: const Icon(
+                        Icons.notifications_none,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                       onPressed: () {},
-                      constraints: const BoxConstraints(minWidth: 38, minHeight: 38),
+                      constraints: const BoxConstraints(
+                        minWidth: 38,
+                        minHeight: 38,
+                      ),
                       padding: EdgeInsets.zero,
                     ),
                   ),
@@ -196,17 +208,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 boxShadow: isSalesManager
                     ? [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.06),
+                          color: Colors.black.withValues(alpha: 0.06),
                           blurRadius: 4,
                           offset: const Offset(0, 2),
-                        )
+                        ),
                       ]
                     : [],
               ),
               child: Text(
                 "Sales Manager",
                 style: TextStyle(
-                  color: isSalesManager ? const Color(0xFF1E293B) : Colors.grey.shade600,
+                  color: isSalesManager
+                      ? const Color(0xFF1E293B)
+                      : Colors.grey.shade600,
                   fontWeight: FontWeight.bold,
                   fontSize: 13,
                 ),
@@ -231,17 +245,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 boxShadow: !isSalesManager
                     ? [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.06),
+                          color: Colors.black.withValues(alpha: 0.06),
                           blurRadius: 4,
                           offset: const Offset(0, 2),
-                        )
+                        ),
                       ]
                     : [],
               ),
               child: Text(
                 "My View",
                 style: TextStyle(
-                  color: !isSalesManager ? const Color(0xFF1E293B) : Colors.grey.shade600,
+                  color: !isSalesManager
+                      ? const Color(0xFF1E293B)
+                      : Colors.grey.shade600,
                   fontWeight: FontWeight.bold,
                   fontSize: 13,
                 ),
